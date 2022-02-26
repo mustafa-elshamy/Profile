@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 
 import 'package:profile/views/light_profile/light_profile_page.dart';
 
@@ -12,10 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: LightProfile(),
+    return BlocProvider(
+      create: (context) => ProfileBloc(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: LightProfile(),
+        ),
       ),
     );
   }

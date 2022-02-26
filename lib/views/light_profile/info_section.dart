@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile/views/light_profile/widgets/number_info.dart';
 import 'package:profile/views/light_profile/widgets/social_card.dart';
 
 class InfoSection extends StatefulWidget {
@@ -63,11 +64,29 @@ class _InfoSectionState extends State<InfoSection> {
               )
             ],
           ),
-          Divider(
-            height: 50,
-            color: Colors.black,
-            thickness: 1,
-          )
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: const [
+              NumberInfo(
+                info: "Ads",
+                number: "100",
+              ),
+              NumberInfo(
+                info: "Followers",
+                number: "200",
+              ),
+              NumberInfo(
+                info: "Following",
+                number: "300",
+              ),
+            ],
+          ),
+          // Divider(
+          //   height: 50,
+          //   color: Colors.black,
+          //   thickness: 1,
+          // )
         ],
       ),
     );

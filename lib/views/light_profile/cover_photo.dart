@@ -67,7 +67,7 @@ class _CoverDelegateState extends State<CoverDelegate> {
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   CircleAvatar(
                     radius: 25,
                     backgroundImage: NetworkImage(
@@ -83,7 +83,7 @@ class _CoverDelegateState extends State<CoverDelegate> {
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.white),
-                  )
+                  ),
                 ],
               ),
             ),

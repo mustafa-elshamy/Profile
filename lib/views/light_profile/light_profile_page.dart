@@ -70,9 +70,7 @@ class _LightProfileState extends State<LightProfile>
                               child: TabBarView(
                                 controller: _tabController,
                                 children: [
-                                  Center(
-                                    child: Text("2"),
-                                  ),
+                                  Center(child: Text("2")),
                                   SkillsPage(),
                                   ExperiencePage(),
                                 ],

@@ -15,18 +15,31 @@ class _ExperiencePageState extends State<ExperiencePage> {
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 1,
       mainAxisSpacing: 20,
+      childAspectRatio: 4,
       padding: EdgeInsets.only(
         top: 20,
-        left: 50,
+        left: 20,
         right: 20,
       ),
-
       children: [
-        ExperienceCard(),
-        ExperienceCard(),
-        ExperienceCard(),
-        ExperienceCard(),
-        ExperienceCard(),
+        ExperienceCard(
+          isLast: false,
+          job: "Art Director",
+          company: "Pixels LTD",
+          duration: "Feb 2019 - Preseent",
+        ),
+        ExperienceCard(
+          isLast: false,
+          job: "Designer",
+          company: "Fire Media LLC",
+          duration: "Jul 2018 - Feb 2019",
+        ),
+        ExperienceCard(
+          isLast: true,
+          job: "UI/UX Designer",
+          company: "Fire Media LLC",
+          duration: "Oct 2017 - Jul 2018",
+        ),
       ],
     );
   }

@@ -89,7 +89,7 @@ class NewCoverPhoto implements SliverPersistentHeaderDelegate {
                     decoration:
                         BoxDecoration(borderRadius: BorderRadius.circular(25)),
                     child: CircleAvatar(
-                      radius: 25,
+                      radius: MediaQuery.of(context).size.height *.03,
                       backgroundImage: NetworkImage(
                         "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
                       ),
@@ -110,7 +110,7 @@ class NewCoverPhoto implements SliverPersistentHeaderDelegate {
                           fontSize: 18,
                           color: Colors.white),
                     ),
-                    SizedBox(height: 4),
+                    SizedBox(height: 2),
                     StreamBuilder<String>(
                         stream: context.read<ProfileBloc>().selectedCvSection,
                         builder: (context, cvSectionSnapshot) {
@@ -118,10 +118,6 @@ class NewCoverPhoto implements SliverPersistentHeaderDelegate {
                             return StreamBuilder<bool>(
                                 stream: context.read<ProfileBloc>().showCvTitle,
                                 builder: (context, cvTitleSnapshot) {
-                                  print(cvTitleSnapshot.data);
-                                  print(context
-                                      .read<ProfileBloc>()
-                                      .selectedCvSection);
                                   if (cvTitleSnapshot.hasData &&
                                       cvTitleSnapshot.data) {
                                     return Text(

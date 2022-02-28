@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/views/light_profile/widgets/number_info.dart';
 import 'package:profile/views/light_profile/widgets/social_card.dart';
+import 'package:provider/src/provider.dart';
 
 class InfoSection extends StatefulWidget {
   const InfoSection({Key key}) : super(key: key);
@@ -67,11 +69,22 @@ class _InfoSectionState extends State<InfoSection> {
           SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
-              NumberInfo(
-                info: "Ads",
-                number: "100",
-              ),
+            children: [
+              StreamBuilder<bool>(
+                  stream: context.read<ProfileBloc>().showAds,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return NumberInfo(
+                        isSelected: snapshot.data,
+                        info: "Ads",
+                        number: "100",
+                        onTap: () {
+                          context.read<ProfileBloc>().toggleShowAds();
+                        },
+                      );
+                    }
+                    return Container();
+                  }),
               NumberInfo(
                 info: "Followers",
                 number: "200",
@@ -82,11 +95,6 @@ class _InfoSectionState extends State<InfoSection> {
               ),
             ],
           ),
-          // Divider(
-          //   height: 50,
-          //   color: Colors.black,
-          //   thickness: 1,
-          // )
         ],
       ),
     );

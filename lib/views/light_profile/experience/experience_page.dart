@@ -21,7 +21,7 @@ class _ExperiencePageState extends State<ExperiencePage> {
         left: 20,
         right: 20,
       ),
-      children: [
+      children: const [
         ExperienceCard(
           isLast: false,
           job: "Art Director",

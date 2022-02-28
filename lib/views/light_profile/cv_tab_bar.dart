@@ -14,25 +14,26 @@ class CVTabBar extends StatefulWidget {
 }
 
 class _CVTabBarState extends State<CVTabBar> {
-
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: TabBar(
-        isScrollable: true,
-        controller: widget.tabController,
-        indicator: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: MyColors.primaryColor),
-        tabs: [for (String tabText in widget.tabs) tab(tabText)],
-        onTap: (index) {
-          widget.tabController.index = index;
-        },
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: DefaultTabController(
+        length: widget.tabs.length,
+        child: TabBar(
+          isScrollable: true,
+          controller: widget.tabController,
+          indicator: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: MyColors.primaryColor),
+          tabs: [for (String tabText in widget.tabs) tab(tabText)],
+          onTap: (index) {
+            widget.tabController.index = index;
+          },
+        ),
       ),
     );
   }
-
 }
 
 Widget tab(String text) => SizedBox(
@@ -40,7 +41,9 @@ Widget tab(String text) => SizedBox(
       child: Center(
         child: Text(
           text,
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Colors.black,
+          ),
         ),
       ),
     );

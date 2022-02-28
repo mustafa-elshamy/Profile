@@ -4,6 +4,7 @@ import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
 import 'package:provider/src/provider.dart';
 
+
 import 'info_section.dart';
 
 class NewCoverPhoto implements SliverPersistentHeaderDelegate {
@@ -69,7 +70,7 @@ class NewCoverPhoto implements SliverPersistentHeaderDelegate {
                     ),
                   ),
                 ),
-                InfoSection()
+                // InfoSection()
               ],
             ),
           ),

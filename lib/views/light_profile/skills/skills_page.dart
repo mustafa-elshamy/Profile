@@ -11,11 +11,15 @@ class SkillsPage extends StatefulWidget {
 class _SkillsPageState extends State<SkillsPage> {
   @override
   Widget build(BuildContext context) {
+    final double aspectRatio = MediaQuery.of(context).size.width /
+        MediaQuery.of(context).size.height *
+        1.7;
     return GridView.count(
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 3,
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
+      childAspectRatio: aspectRatio,
       padding: EdgeInsets.only(top: 40, right: 20, left: 20),
       children: [
         SkillCard(

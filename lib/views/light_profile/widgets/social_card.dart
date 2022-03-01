@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:profile/constants/colors.dart';
 
 class SocialCard extends StatelessWidget {
   final String image;
   final double size;
+  final Color imageColor;
+  final int imageContainerDifference;
 
-  const SocialCard({Key key, this.image, this.size = 20}) : super(key: key);
+  const SocialCard(
+      {Key key,
+      this.image,
+      this.size = 20,
+      this.imageColor,
+      this.imageContainerDifference = 0})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +30,9 @@ class SocialCard extends StatelessWidget {
           child: Center(
             child: Image.asset(
               image,
-              height: size - 15,
-              width: size - 15,
+              height: size - imageContainerDifference,
+              width: size - imageContainerDifference,
+              color: imageColor,
             ),
           ),
         ),

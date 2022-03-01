@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
+import 'package:profile/views/light_profile/widgets/settings_icon.dart';
 import 'package:provider/src/provider.dart';
-
 
 import 'info_section.dart';
 
@@ -90,7 +90,7 @@ class NewCoverPhoto implements SliverPersistentHeaderDelegate {
                     decoration:
                         BoxDecoration(borderRadius: BorderRadius.circular(25)),
                     child: CircleAvatar(
-                      radius: MediaQuery.of(context).size.height *.03,
+                      radius: MediaQuery.of(context).size.height * .03,
                       backgroundImage: NetworkImage(
                         "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
                       ),

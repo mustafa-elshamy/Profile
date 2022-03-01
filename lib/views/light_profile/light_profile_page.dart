@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/views/light_profile/about_me/about_me_page.dart';
@@ -20,7 +19,12 @@ class LightProfile extends StatefulWidget {
 class _LightProfileState extends State<LightProfile>
     with TickerProviderStateMixin {
   TabController _tabController;
-  final List<String> _homeTabs = ["Home", "About", "Skills", "Experience"];
+  final List<String> _homeTabs = [
+    "Home",
+    "About",
+    "Skills",
+    "Experience ",
+  ];
   final List<String> _adTabs = [
     "Home",
     "Current",
@@ -54,11 +58,11 @@ class _LightProfileState extends State<LightProfile>
                 if (snapshot.hasData && snapshot.data > .95) {
                   return Container(
                       padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 20,
+                          top: MediaQuery.of(context).size.height / 60,
                           bottom: 20),
                       child: InfoSection());
                 }
-                return Container();
+                return const SizedBox(height: 10);
               }),
         ),
         SliverToBoxAdapter(

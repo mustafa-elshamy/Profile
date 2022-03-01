@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
+import 'package:profile/constants/colors.dart';
 import 'package:profile/views/light_profile/widgets/number_info.dart';
+import 'package:profile/views/light_profile/widgets/settings_icon.dart';
 import 'package:profile/views/light_profile/widgets/social_card.dart';
 import 'package:provider/src/provider.dart';
 
@@ -18,6 +20,15 @@ class _InfoSectionState extends State<InfoSection> {
       padding: EdgeInsets.only(top: 8),
       child: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SettingsIcon(
+                iconColor: MyColors.primaryColor,
+                backgroundColor: Colors.white,
+              )
+            ],
+          ),
           Container(
             width: MediaQuery.of(context).size.width * 2 / 3,
             child: Text(
@@ -45,25 +56,41 @@ class _InfoSectionState extends State<InfoSection> {
             ),
           ),
           SizedBox(height: 8),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     SocialCard(
+          //       image: "assets/images/facebook.png",
+          //       size: 40,
+          //     ),
+          //     SocialCard(
+          //       image: "assets/images/linkedin.png",
+          //       size: 40,
+          //     ),
+          //     SocialCard(
+          //       image: "assets/images/github.png",
+          //       size: 40,
+          //     ),
+          //     SocialCard(
+          //       image: "assets/images/behance.png",
+          //       size: 40,
+          //     )
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SocialCard(
-                image: "assets/images/facebook.png",
+                image: "assets/images/invitation.png",
                 size: 40,
+                imageColor: MyColors.primaryColor,
               ),
               SocialCard(
-                image: "assets/images/linkedin.png",
+                image: "assets/images/map.png",
                 size: 40,
+                imageContainerDifference: 15,
+                imageColor: MyColors.primaryColor,
               ),
-              SocialCard(
-                image: "assets/images/github.png",
-                size: 40,
-              ),
-              SocialCard(
-                image: "assets/images/behance.png",
-                size: 40,
-              )
             ],
           ),
           SizedBox(height: 20),

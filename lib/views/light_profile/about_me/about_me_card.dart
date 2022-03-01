@@ -18,7 +18,8 @@ class AboutMeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20), color: Colors.white),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,

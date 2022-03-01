@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:profile/constants/colors.dart';
-import 'package:profile/views/light_profile/info_section.dart';
+import 'package:profile/views/light_profile/cover/info_section.dart';
 import 'package:sliver_header_delegate/sliver_header_delegate.dart';
 
 class CoverDelegate extends StatefulWidget {

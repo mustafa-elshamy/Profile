@@ -18,7 +18,10 @@ class SkillCard extends StatelessWidget {
       child: Container(
         height: _cardHeight,
         width: _cardWidth,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

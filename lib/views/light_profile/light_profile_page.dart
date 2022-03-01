@@ -4,8 +4,8 @@ import 'package:profile/views/light_profile/about_me/about_me_page.dart';
 import 'package:profile/views/light_profile/cv_tab_bar.dart';
 import 'package:profile/views/light_profile/experience/experience_page.dart';
 import 'package:profile/views/light_profile/home/home_page.dart';
-import 'package:profile/views/light_profile/info_section.dart';
-import 'package:profile/views/light_profile/new_cover_photo.dart';
+import 'package:profile/views/light_profile/cover/info_section.dart';
+import 'package:profile/views/light_profile/cover/new_cover_photo.dart';
 import 'package:profile/views/light_profile/skills/skills_page.dart';
 import 'package:provider/src/provider.dart';
 
@@ -58,7 +58,7 @@ class _LightProfileState extends State<LightProfile>
                 if (snapshot.hasData && snapshot.data > .95) {
                   return Container(
                       padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 60,
+                          top: MediaQuery.of(context).size.height / 17,
                           bottom: 20),
                       child: InfoSection());
                 }

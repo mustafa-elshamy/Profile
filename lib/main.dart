@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 
 import 'package:profile/views/light_profile/light_profile_page.dart';
+import 'package:profile/views/light_profile/side_menu/side_menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +17,13 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => ProfileBloc(),
       child: MaterialApp(
+        theme: ThemeData(canvasColor: Colors.transparent),
         debugShowCheckedModeBanner: false,
         home: Scaffold(
+          backgroundColor: Colors.white,
           body: LightProfile(),
+          drawer: SideMenu(),
+          drawerEnableOpenDragGesture: false,
         ),
       ),
     );

@@ -56,6 +56,7 @@ class ExperienceCard extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 5, vertical: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

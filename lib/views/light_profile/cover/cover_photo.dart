@@ -7,11 +7,11 @@ import 'package:provider/src/provider.dart';
 
 import 'info_section.dart';
 
-class NewCoverPhoto implements SliverPersistentHeaderDelegate {
+class CoverPhoto implements SliverPersistentHeaderDelegate {
   final double coverMinExtent;
   final double coverMaxExtent;
 
-  NewCoverPhoto({@required this.coverMinExtent, @required this.coverMaxExtent});
+  CoverPhoto({@required this.coverMinExtent, @required this.coverMaxExtent});
 
   @override
   Widget build(
@@ -90,15 +90,10 @@ class NewCoverPhoto implements SliverPersistentHeaderDelegate {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
                         color: Colors.white),
-                    child: InkWell(
-                      onTap: () {
-                        Scaffold.of(context).openDrawer();
-                      },
-                      child: CircleAvatar(
-                        radius: MediaQuery.of(context).size.height * .03,
-                        backgroundImage: NetworkImage(
-                          "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-                        ),
+                    child: CircleAvatar(
+                      radius: MediaQuery.of(context).size.height * .03,
+                      backgroundImage: NetworkImage(
+                        "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
                       ),
                     ),
                   ),

@@ -48,6 +48,7 @@ dev_dependencies:
   sliver_header_delegate: ^0.0.1
   flutter_bloc: ^8.0.1
   rxdart: ^0.21.0
+  should_rebuild: ^1.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

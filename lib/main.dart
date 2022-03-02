@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 
 import 'package:profile/views/light_profile/light_profile_page.dart';
+import 'package:profile/views/light_profile/menu_icon/menu_icon.dart';
 import 'package:profile/views/light_profile/side_menu/side_menu.dart';
 
 void main() {
@@ -19,12 +20,22 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(canvasColor: Colors.transparent),
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          backgroundColor: Colors.white,
-          body: LightProfile(),
-          drawer: SideMenu(),
-          drawerEnableOpenDragGesture: false,
-        ),
+        home: Builder(builder: (context) {
+          return Scaffold(
+            backgroundColor: Colors.white,
+            body: Stack(
+              children: [
+                LightProfile(),
+                Positioned(
+                  top: MediaQuery.of(context).size.height / 4,
+                  child: MenuIcon(),
+                ),
+              ],
+            ),
+            drawer: SideMenu(),
+            drawerEdgeDragWidth: MediaQuery.of(context).size.width / 10,
+          );
+        }),
       ),
     );
   }

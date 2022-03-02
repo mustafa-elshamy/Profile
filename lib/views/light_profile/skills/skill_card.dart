@@ -10,8 +10,8 @@ class SkillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _cardWidth = MediaQuery.of(context).size.width / 8;
-    _cardHeight = MediaQuery.of(context).size.height / 8;
+    _cardWidth = MediaQuery.of(context).size.width / 4;
+    _cardHeight = MediaQuery.of(context).size.height / 7;
     return Material(
       elevation: 2,
       borderRadius: BorderRadius.circular(20),
@@ -26,8 +26,8 @@ class SkillCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              height: _cardHeight - 30,
-              width: _cardWidth - 10,
+              height: _cardHeight / 2,
+              width: _cardWidth / 2,
               child: Center(
                 child: Image.asset(
                   image,

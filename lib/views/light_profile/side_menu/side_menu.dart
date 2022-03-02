@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
+import 'package:profile/views/light_profile/side_menu/settings_builder.dart';
 import 'package:profile/views/light_profile/side_menu/side_menu_card.dart';
 import 'package:profile/views/light_profile/widgets/custom_text.dart';
+import 'package:provider/src/provider.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({Key key}) : super(key: key);
@@ -11,6 +14,14 @@ class SideMenu extends StatefulWidget {
 }
 
 class _SideMenuState extends State<SideMenu> {
+  bool settingsSelected = false;
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProfileBloc>().updateShowSettings = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -54,7 +65,7 @@ class _SideMenuState extends State<SideMenu> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(
                                       MediaQuery.of(context).size.height * .08),
-                                  color: MyColors.darkPrimaryColor),
+                                  color: Colors.white),
                               child: InkWell(
                                 onTap: () {
                                   Scaffold.of(context).openDrawer();
@@ -97,9 +108,10 @@ class _SideMenuState extends State<SideMenu> {
               ),
               SizedBox(height: 10),
               SideMenuCard(
-                text: "Settings",
-                icon: Icons.settings_rounded,
+                text: "My Addresses",
+                image: "assets/images/map.png",
                 iconSize: 35,
+                imageContainerDifference: 15,
               ),
               SideMenuCard(
                 text: "Invite your friends",
@@ -107,11 +119,16 @@ class _SideMenuState extends State<SideMenu> {
                 iconSize: 35,
               ),
               SideMenuCard(
-                text: "My Addresses",
-                image: "assets/images/map.png",
+                text: "Settings",
+                icon: Icons.settings_rounded,
                 iconSize: 35,
-                imageContainerDifference: 15,
+                onTap: () {
+                  context.read<ProfileBloc>().toggleShowSettings();
+                  setState(() => settingsSelected = !settingsSelected);
+                },
+                isCardSelected: settingsSelected,
               ),
+              SettingsBuilder(),
               SideMenuCard(
                 text: "Logout",
                 icon: Icons.logout_rounded,

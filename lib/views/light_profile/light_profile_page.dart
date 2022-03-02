@@ -1,13 +1,15 @@
+import 'package:profile/views/light_profile/tab_bars/ads_tab_bar.dart';
+import 'package:profile/views/light_profile/tab_bars/home_tab_bar.dart';
+import 'package:provider/src/provider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/views/light_profile/about_me/about_me_page.dart';
-import 'package:profile/views/light_profile/cv_tab_bar.dart';
 import 'package:profile/views/light_profile/experience/experience_page.dart';
 import 'package:profile/views/light_profile/home/home_page.dart';
 import 'package:profile/views/light_profile/cover/info_section.dart';
-import 'package:profile/views/light_profile/cover/new_cover_photo.dart';
+import 'package:profile/views/light_profile/cover/cover_photo.dart';
 import 'package:profile/views/light_profile/skills/skills_page.dart';
-import 'package:provider/src/provider.dart';
 
 class LightProfile extends StatefulWidget {
   const LightProfile({Key key}) : super(key: key);
@@ -18,36 +20,13 @@ class LightProfile extends StatefulWidget {
 
 class _LightProfileState extends State<LightProfile>
     with TickerProviderStateMixin {
-  TabController _tabController;
-  final List<String> _homeTabs = [
-    "Home",
-    "About",
-    "Skills",
-    "Experience ",
-  ];
-  final List<String> _adTabs = [
-    "Home",
-    "Current",
-    "Pending",
-    "Suspended",
-    "Finished"
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: _homeTabs.length, vsync: this);
-    _tabController.addListener(tabControllerListener);
-    _tabController.notifyListeners();
-  }
-
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
         SliverPersistentHeader(
           pinned: true,
-          delegate: NewCoverPhoto(
+          delegate: CoverPhoto(
               coverMaxExtent: MediaQuery.of(context).size.height / 4,
               coverMinExtent: MediaQuery.of(context).size.height / 9),
         ),
@@ -58,7 +37,7 @@ class _LightProfileState extends State<LightProfile>
                 if (snapshot.hasData && snapshot.data > .95) {
                   return Container(
                       padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 17,
+                          top: MediaQuery.of(context).size.height / 20,
                           bottom: 20),
                       child: InfoSection());
                 }
@@ -82,41 +61,36 @@ class _LightProfileState extends State<LightProfile>
                   stream: context.read<ProfileBloc>().showAds,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      _tabController.dispose();
-                      _tabController = TabController(
-                          length:
-                              snapshot.data ? _adTabs.length : _homeTabs.length,
-                          vsync: this);
-                      _tabController.addListener(tabControllerListener);
                       if (snapshot.data) {
-                        _tabController.animateTo(1,
-                            duration: Duration(milliseconds: 500));
+                        return const AdsTabBar(
+                          tabsText: [
+                            "Home",
+                            "Current",
+                            "Pending",
+                            "Suspended",
+                            "Finished"
+                          ],
+                          tabsWidgets: [
+                            HomePage(),
+                            Text("1"),
+                            Text("2"),
+                            Text("3"),
+                            Text("4"),
+                          ],
+                        );
                       }
-                      return Column(
-                        children: [
-                          CVTabBar(
-                              tabController: _tabController,
-                              tabs: snapshot.data ? _adTabs : _homeTabs),
-                          SizedBox(
-                            height: 1000,
-                            child: TabBarView(
-                              controller: _tabController,
-                              children: snapshot.data
-                                  ? [
-                                      HomePage(),
-                                      Text("1"),
-                                      Text("1"),
-                                      Text("1"),
-                                      Text("1"),
-                                    ]
-                                  : [
-                                      HomePage(),
-                                      AboutMePage(),
-                                      SkillsPage(),
-                                      ExperiencePage(),
-                                    ],
-                            ),
-                          ),
+                      return const HomeTabBar(
+                        tabsText: [
+                          "Home",
+                          "About",
+                          "Skills",
+                          "Experience ",
+                        ],
+                        tabsWidgets: [
+                          HomePage(),
+                          AboutMePage(),
+                          SkillsPage(),
+                          ExperiencePage(),
                         ],
                       );
                     }
@@ -127,19 +101,5 @@ class _LightProfileState extends State<LightProfile>
         )
       ],
     );
-  }
-
-  void tabControllerListener() {
-    context.read<ProfileBloc>().updateSelectedCvSection =
-        _homeTabs[_tabController.index];
-    if (_tabController.index == 0) {
-      context.read<ProfileBloc>().updateShowAds = false;
-    }
-  }
-
-  @override
-  void dispose() {
-    _tabController.dispose();
-    super.dispose();
   }
 }

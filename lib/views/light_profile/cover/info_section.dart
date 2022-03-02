@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
+import 'package:profile/views/light_profile/menu_icon/menu_icon.dart';
 import 'package:profile/views/light_profile/widgets/custom_text.dart';
 import 'package:profile/views/light_profile/widgets/number_info.dart';
 import 'package:profile/views/light_profile/widgets/custom_icon.dart';
@@ -38,28 +39,28 @@ class _InfoSectionState extends State<InfoSection> {
             maxLines: 2,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomIcon(
-                image: "assets/images/invitation.png",
-                size: 40,
-                color: MyColors.primaryColor,
-              ),
-              CustomIcon(
-                image: "assets/images/map.png",
-                size: 40,
-                imageContainerDifference: 17,
-                color: MyColors.primaryColor,
-              ),
-              CustomIcon(
-                size: 40,
-                icon: Icons.settings_rounded,
-                color: MyColors.primaryColor,
-              )
-            ],
-          ),
+          // SizedBox(height: 8),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     CustomIcon(
+          //       image: "assets/images/invitation.png",
+          //       size: 40,
+          //       color: MyColors.primaryColor,
+          //     ),
+          //     CustomIcon(
+          //       image: "assets/images/map.png",
+          //       size: 40,
+          //       imageContainerDifference: 17,
+          //       color: MyColors.primaryColor,
+          //     ),
+          //     CustomIcon(
+          //       size: 40,
+          //       icon: Icons.settings_rounded,
+          //       color: MyColors.primaryColor,
+          //     )
+          //   ],
+          // ),
           SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

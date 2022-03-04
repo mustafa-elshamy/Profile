@@ -19,7 +19,7 @@ class SocialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       child: Material(
         elevation: 2,
         borderRadius: BorderRadius.circular(20),

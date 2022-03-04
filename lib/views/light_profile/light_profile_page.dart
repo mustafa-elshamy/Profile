@@ -1,10 +1,11 @@
-import 'package:profile/views/light_profile/tab_bars/ads_tab_bar.dart';
-import 'package:profile/views/light_profile/tab_bars/home_tab_bar.dart';
+import 'package:profile/views/light_profile/cv_page/cv_page.dart';
+import 'package:profile/views/light_profile/tab_bars/ads_tab_bar_view.dart';
+import 'package:profile/views/light_profile/tab_bars/home_tab_bar_view.dart';
 import 'package:provider/src/provider.dart';
 
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
-import 'package:profile/views/light_profile/about_me/about_me_page.dart';
+import 'package:profile/views/light_profile/about_me/about_page.dart';
 import 'package:profile/views/light_profile/experience/experience_page.dart';
 import 'package:profile/views/light_profile/home/home_page.dart';
 import 'package:profile/views/light_profile/cover/info_section.dart';
@@ -37,7 +38,7 @@ class _LightProfileState extends State<LightProfile>
                 if (snapshot.hasData && snapshot.data > .95) {
                   return Container(
                       padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 20,
+                          top: MediaQuery.of(context).size.height / 100,
                           bottom: 20),
                       child: InfoSection());
                 }
@@ -62,7 +63,7 @@ class _LightProfileState extends State<LightProfile>
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       if (snapshot.data) {
-                        return const AdsTabBar(
+                        return const AdsTabBarView(
                           tabsText: [
                             "Home",
                             "Current",
@@ -79,18 +80,14 @@ class _LightProfileState extends State<LightProfile>
                           ],
                         );
                       }
-                      return const HomeTabBar(
+                      return const HomeTabBarView(
                         tabsText: [
                           "Home",
-                          "About",
-                          "Skills",
-                          "Experience ",
+                          "CV",
                         ],
                         tabsWidgets: [
                           HomePage(),
-                          AboutMePage(),
-                          SkillsPage(),
-                          ExperiencePage(),
+                          CVPage(),
                         ],
                       );
                     }

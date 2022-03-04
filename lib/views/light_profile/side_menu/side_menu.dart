@@ -122,13 +122,23 @@ class _SideMenuState extends State<SideMenu> {
                 text: "Settings",
                 icon: Icons.settings_rounded,
                 iconSize: 35,
-                onTap: () {
-                  context.read<ProfileBloc>().toggleShowSettings();
-                  setState(() => settingsSelected = !settingsSelected);
-                },
-                isCardSelected: settingsSelected,
+                // onTap: () {
+                //   context.read<ProfileBloc>().toggleShowSettings();
+                //   setState(() => settingsSelected = !settingsSelected);
+                // },
+                // isCardSelected: settingsSelected,
               ),
-              SettingsBuilder(),
+              // SettingsBuilder(),
+              SideMenuCard(
+                text: "Edit Password",
+                icon: Icons.lock_rounded,
+                iconSize: 35,
+              ),
+              SideMenuCard(
+                text: "Calculate your installment",
+                icon: Icons.calculate_rounded,
+                iconSize: 35,
+              ),
               SideMenuCard(
                 text: "Logout",
                 icon: Icons.logout_rounded,

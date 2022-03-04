@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
+import 'package:profile/views/light_profile/cover/edit_icon.dart';
 import 'package:profile/views/light_profile/menu_icon/menu_icon.dart';
 import 'package:profile/views/light_profile/widgets/custom_text.dart';
 import 'package:profile/views/light_profile/widgets/number_info.dart';
@@ -21,6 +22,7 @@ class _InfoSectionState extends State<InfoSection> {
       padding: EdgeInsets.only(top: 8),
       child: Column(
         children: [
+          EditIcon(onTap: (){},),
           CustomText(
             text: "Username",
             textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),

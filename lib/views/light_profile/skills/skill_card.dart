@@ -10,14 +10,14 @@ class SkillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _cardWidth = MediaQuery.of(context).size.width / 4;
+    _cardWidth = MediaQuery.of(context).size.width / 3.7;
     _cardHeight = MediaQuery.of(context).size.height / 7;
     return Material(
       elevation: 2,
       borderRadius: BorderRadius.circular(20),
       child: Container(
         height: _cardHeight,
-        width: _cardWidth,
+        // width: _cardWidth,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.white,
@@ -25,7 +25,7 @@ class SkillCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
+            SizedBox(
               height: _cardHeight / 2,
               width: _cardWidth / 2,
               child: Center(
@@ -43,7 +43,10 @@ class SkillCard extends StatelessWidget {
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
-                style: TextStyle(fontWeight: FontWeight.w500),
+                style: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                ),
               ),
             ),
           ],

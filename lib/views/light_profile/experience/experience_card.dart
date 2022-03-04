@@ -18,15 +18,15 @@ class ExperienceCard extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+        Stack(
+          clipBehavior: Clip.none,
           children: [
-            SizedBox(
-              height: _cardHeight / 2 - 10,
-            ),
-            CircleAvatar(
-              radius: 6,
-              backgroundColor: MyColors.primaryColor,
+            Positioned(
+              top: _cardHeight / 2 - 55,
+              child: CircleAvatar(
+                radius: 6,
+                backgroundColor: MyColors.primaryColor,
+              ),
             ),
             Visibility(
               visible: !isLast,
@@ -36,12 +36,16 @@ class ExperienceCard extends StatelessWidget {
             ),
             Visibility(
               visible: !isLast,
-              child: Container(
-                width: 2,
-                height: MediaQuery.of(context).size.height * .1,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: MyColors.primaryColor,
+              child: Positioned(
+                top: _cardHeight / 2 - 25,
+                left: 5,
+                child: Container(
+                  width: 2,
+                  height: MediaQuery.of(context).size.height * .1,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: MyColors.primaryColor,
+                  ),
                 ),
               ),
             ),

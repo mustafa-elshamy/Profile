@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:profile/views/light_profile/about_me/about_me_card.dart';
 import 'package:profile/views/light_profile/about_me/social_card.dart';
+import 'package:profile/views/light_profile/experience/experience_page.dart';
 import 'package:profile/views/light_profile/skills/skills_page.dart';
+import 'package:profile/views/light_profile/widgets/title_text.dart';
 
-class AboutMePage extends StatefulWidget {
-  const AboutMePage({Key key}) : super(key: key);
+class AboutPage extends StatefulWidget {
+  const AboutPage({Key key}) : super(key: key);
 
   @override
-  _AboutMePageState createState() => _AboutMePageState();
+  _AboutPageState createState() => _AboutPageState();
 }
 
-class _AboutMePageState extends State<AboutMePage> {
+class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     final double aspectRatio = MediaQuery.of(context).size.aspectRatio * 3.5;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        TitleText(
+          text: "About",
+        ),
         AboutMeCard(
           title: "About me",
           content: "Hey, I am dfjsdlfjk alskfjasdlk alfkasd lkfjasdlkf l ka"

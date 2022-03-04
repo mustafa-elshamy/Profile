@@ -20,8 +20,19 @@ class CustomGridView extends StatefulWidget {
 }
 
 class _CustomGridViewState extends State<CustomGridView> {
+  double widthOfItem;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    double totalPadding = (widget.columnsCount + 1) * widget.horizontalPadding;
+    widthOfItem = ((MediaQuery.of(context).size.width - totalPadding) /
+            widget.columnsCount) -
+        10;
     return Column(
       children: [
         for (int i = 0; i < widget.children.length; i += widget.columnsCount)
@@ -35,7 +46,10 @@ class _CustomGridViewState extends State<CustomGridView> {
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: widget.horizontalPadding),
-                    child: widget.children[j],
+                    child: SizedBox(
+                      width: widthOfItem,
+                      child: widget.children[j],
+                    ),
                   )
               ],
             ),

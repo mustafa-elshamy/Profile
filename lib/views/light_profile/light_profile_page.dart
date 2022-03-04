@@ -38,7 +38,7 @@ class _LightProfileState extends State<LightProfile>
                 if (snapshot.hasData && snapshot.data > .95) {
                   return Container(
                       padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 100,
+                          top: MediaQuery.of(context).size.height / 20,
                           bottom: 20),
                       child: InfoSection());
                 }

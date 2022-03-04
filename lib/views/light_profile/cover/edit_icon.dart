@@ -19,12 +19,20 @@ class EditIcon extends StatelessWidget {
             child: InkWell(
               borderRadius: BorderRadius.circular(10),
               onTap: onTap,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 20,
-                child: Icon(
-                  Icons.edit_rounded,
+              child: Container(
+                padding: EdgeInsets.all(1),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                   color: MyColors.primaryColor,
+                ),
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 18,
+                  child: Icon(
+                    Icons.edit_rounded,
+                    color: MyColors.primaryColor,
+                    size: 20,
+                  ),
                 ),
               ),
             ),

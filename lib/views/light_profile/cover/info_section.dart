@@ -22,7 +22,7 @@ class _InfoSectionState extends State<InfoSection> {
       padding: EdgeInsets.only(top: 8),
       child: Column(
         children: [
-          EditIcon(onTap: (){},),
+          // EditIcon(onTap: (){},),
           CustomText(
             text: "Username",
             textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),

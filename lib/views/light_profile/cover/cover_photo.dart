@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/sliver_persistent_header.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
+import 'package:profile/views/light_profile/cover/edit_icon.dart';
 import 'package:profile/views/light_profile/widgets/custom_icon.dart';
 import 'package:provider/src/provider.dart';
 
@@ -45,6 +46,14 @@ class CoverPhoto implements SliverPersistentHeaderDelegate {
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20))),
                 shrinkOffset / coverMaxExtent)),
+        Visibility(
+          visible: shrinkOffset < coverMaxExtent / 20,
+          child: Positioned(
+            right: 10,
+            top: 190,
+            child: EditIcon(onTap: () {}),
+          ),
+        ),
         Visibility(
           visible: shrinkOffset < coverMaxExtent / 20,
           child: Positioned(

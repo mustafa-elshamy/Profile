@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile/views/light_profile/home/like_post.dart';
+import 'package:profile/views/light_profile/home/like_post_animation.dart';
 
 class PostImage extends StatefulWidget {
   final String image;
@@ -52,7 +52,7 @@ class _PostImageState extends State<PostImage> {
           widget.withLikeAnimation
               ? Opacity(
                   opacity: isLikeAnimating ? 1 : 0,
-                  child: LikePost(
+                  child: LikePostAnimation(
                     isAnimating: isLikeAnimating,
                     onEnd: () {
                       setState(() => isLikeAnimating = false);

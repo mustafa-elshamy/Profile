@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class LikePost extends StatefulWidget {
+class LikePostAnimation extends StatefulWidget {
   final bool isAnimating;
   final VoidCallback onEnd;
 
-  const LikePost({
+  const LikePostAnimation({
     Key key,
     this.isAnimating,
     this.onEnd,
   }) : super(key: key);
 
   @override
-  State<LikePost> createState() => _LikePostState();
+  State<LikePostAnimation> createState() => _LikePostAnimationState();
 }
 
-class _LikePostState extends State<LikePost>
+class _LikePostAnimationState extends State<LikePostAnimation>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<double> scale;
@@ -40,7 +40,7 @@ class _LikePostState extends State<LikePost>
   }
 
   @override
-  void didUpdateWidget(LikePost oldWidget) {
+  void didUpdateWidget(LikePostAnimation oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.isAnimating != oldWidget.isAnimating) animateWidget();
   }

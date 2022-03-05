@@ -31,10 +31,10 @@ class _LikePostAnimationState extends State<LikePostAnimation>
   Widget build(BuildContext context) {
     return ScaleTransition(
       scale: scale,
-      child: const Icon(
+      child: Icon(
         Icons.favorite_rounded,
         color: Colors.white,
-        size: 50,
+        size: MediaQuery.of(context).size.width * .12,
       ),
     );
   }

@@ -15,7 +15,6 @@ class AboutPage extends StatefulWidget {
 class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
-    final double aspectRatio = MediaQuery.of(context).size.aspectRatio * 3.5;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -45,6 +44,7 @@ class _AboutPageState extends State<AboutPage> {
         AboutMeCard(
           title: "Gender",
           content: "Male",
+          // Todo: check gender to show icon
           icon: Icons.male_rounded,
         ),
         SocialCard(

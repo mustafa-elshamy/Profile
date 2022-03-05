@@ -27,11 +27,11 @@ class EditIcon extends StatelessWidget {
                 ),
                 child: CircleAvatar(
                   backgroundColor: Colors.white,
-                  radius: 18,
+                  radius: MediaQuery.of(context).size.width * .05,
                   child: Icon(
                     Icons.edit_rounded,
                     color: MyColors.primaryColor,
-                    size: 20,
+                    size: MediaQuery.of(context).size.width * .06,
                   ),
                 ),
               ),

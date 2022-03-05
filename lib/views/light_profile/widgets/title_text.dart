@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:profile/constants/colors.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 class TitleText extends StatelessWidget {
   final String text;

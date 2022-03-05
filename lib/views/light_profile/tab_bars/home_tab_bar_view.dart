@@ -32,19 +32,15 @@ class _HomeTabBarViewState extends State<HomeTabBarView> with TickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        Column(
-          children: [
-            CVTabBar(tabController: _tabController, tabs: widget.tabsText),
-            SizedBox(
-              height: 2000,
-              child: TabBarView(
-                controller: _tabController,
-                children: widget.tabsWidgets,
-              ),
-            ),
-          ],
+        CVTabBar(tabController: _tabController, tabs: widget.tabsText),
+        SizedBox(
+          height: 3000,
+          child: TabBarView(
+            controller: _tabController,
+            children: widget.tabsWidgets,
+          ),
         ),
       ],
     );

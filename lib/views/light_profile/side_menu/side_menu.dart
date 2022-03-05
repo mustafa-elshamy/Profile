@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
+import 'package:profile/views/light_profile/cover/profile_circle_icon.dart';
 import 'package:profile/views/light_profile/side_menu/settings_builder.dart';
 import 'package:profile/views/light_profile/side_menu/side_menu_card.dart';
 import 'package:profile/views/light_profile/widgets/custom_text.dart';
@@ -56,30 +57,9 @@ class _SideMenuState extends State<SideMenu> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Material(
-                            elevation: 10,
-                            borderRadius: BorderRadius.circular(
-                                MediaQuery.of(context).size.height * .08),
-                            child: Container(
-                              padding: EdgeInsets.all(1.5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      MediaQuery.of(context).size.height * .08),
-                                  color: Colors.white),
-                              child: InkWell(
-                                onTap: () {
-                                  Scaffold.of(context).openDrawer();
-                                },
-                                child: CircleAvatar(
-                                  radius:
-                                      MediaQuery.of(context).size.height * .08,
-                                  backgroundImage: NetworkImage(
-                                    "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                          ProfileCircleIcon(
+                            radius: MediaQuery.of(context).size.height * .08,
+                          )
                         ],
                       ),
                       SizedBox(height: 8),

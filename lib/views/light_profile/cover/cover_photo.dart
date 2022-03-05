@@ -3,6 +3,7 @@ import 'package:flutter/src/rendering/sliver_persistent_header.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
 import 'package:profile/views/light_profile/cover/edit_icon.dart';
+import 'package:profile/views/light_profile/cover/profile_circle_icon.dart';
 import 'package:profile/views/light_profile/widgets/custom_icon.dart';
 import 'package:provider/src/provider.dart';
 
@@ -49,8 +50,8 @@ class CoverPhoto implements SliverPersistentHeaderDelegate {
         Visibility(
           visible: shrinkOffset < coverMaxExtent / 20,
           child: Positioned(
-            right: 10,
-            top: 190,
+            right: MediaQuery.of(context).size.width * .024,
+            top: MediaQuery.of(context).size.height * .22 ,
             child: EditIcon(onTap: () {}),
           ),
         ),
@@ -91,25 +92,10 @@ class CoverPhoto implements SliverPersistentHeaderDelegate {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Material(
-                  elevation: 8,
-                  borderRadius: BorderRadius.circular(25),
-                  child: Container(
-                    padding: EdgeInsets.all(1.5),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.white),
-                    child: CircleAvatar(
-                      radius: MediaQuery.of(context).size.height * .03,
-                      backgroundImage: NetworkImage(
-                        "https://images.unsplash.com/photo-1628563694622-5a76957fd09c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-                      ),
-                    ),
-                  ),
+                ProfileCircleIcon(
+                  radius: MediaQuery.of(context).size.height * .03,
                 ),
-                SizedBox(
-                  width: 20,
-                ),
+                SizedBox(width: 20),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,

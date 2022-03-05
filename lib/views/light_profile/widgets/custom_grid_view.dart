@@ -6,13 +6,15 @@ class CustomGridView extends StatefulWidget {
   final List<Widget> children;
   final double verticalPadding;
   final double horizontalPadding;
+  final MainAxisAlignment horizontalAlignment;
 
   const CustomGridView({
     Key key,
-    this.columnsCount,
+    this.columnsCount = 1,
     this.children,
     this.verticalPadding = 0,
     this.horizontalPadding = 0,
+    this.horizontalAlignment = MainAxisAlignment.start,
   }) : super(key: key);
 
   @override
@@ -39,6 +41,7 @@ class _CustomGridViewState extends State<CustomGridView> {
           Padding(
             padding: EdgeInsets.symmetric(vertical: widget.verticalPadding),
             child: Row(
+              mainAxisAlignment: widget.horizontalAlignment,
               children: [
                 for (int j = i;
                     j < min(i + widget.columnsCount, widget.children.length);

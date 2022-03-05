@@ -24,8 +24,8 @@ class MenuIcon extends StatelessWidget {
                     Scaffold.of(context).openDrawer();
                   },
                   child: Container(
-                    width: MediaQuery.of(context).size.width * .065,
-                    height: MediaQuery.of(context).size.height * .13,
+                    width: 30,
+                    height: 110,
                     color: backgroundColor,
                     child: Icon(
                       Icons.arrow_forward_ios_rounded,

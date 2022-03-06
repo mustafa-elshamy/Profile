@@ -23,15 +23,16 @@ class MyApp extends StatelessWidget {
         home: Builder(builder: (context) {
           return Scaffold(
             backgroundColor: Colors.white,
-            body: Stack(
-              children: [
-                LightProfile(),
-                Positioned(
-                  top: MediaQuery.of(context).size.height / 4,
-                  child: MenuIcon(),
-                ),
-              ],
-            ),
+            // body: Stack(
+            //   children: [
+            //     LightProfile(),
+            //     Positioned(
+            //       top: MediaQuery.of(context).size.height / 4,
+            //       child: MenuIcon(),
+            //     ),
+            //   ],
+            // ),
+            body: LightProfile(),
             drawer: SideMenu(),
             drawerEdgeDragWidth: MediaQuery.of(context).size.width / 10,
           );

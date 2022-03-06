@@ -8,7 +8,7 @@ import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/views/light_profile/about_me/about_page.dart';
 import 'package:profile/views/light_profile/experience/experience_page.dart';
 import 'package:profile/views/light_profile/home/home_page.dart';
-import 'package:profile/views/light_profile/cover/info_section.dart';
+import 'package:profile/views/light_profile/info_section/info_section.dart';
 import 'package:profile/views/light_profile/cover/cover_photo.dart';
 import 'package:profile/views/light_profile/skills/skills_page.dart';
 
@@ -23,30 +23,33 @@ class _LightProfileState extends State<LightProfile>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverPersistentHeader(
-          pinned: true,
-          delegate: CoverPhoto(
-              coverMaxExtent: MediaQuery.of(context).size.height / 4,
-              coverMinExtent: MediaQuery.of(context).size.height / 9),
-        ),
-        SliverToBoxAdapter(
-          child: StreamBuilder<double>(
+    return NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return [
+          SliverPersistentHeader(
+            pinned: true,
+            delegate: CoverPhoto(
+                coverMaxExtent: MediaQuery.of(context).size.height / 4,
+                coverMinExtent: MediaQuery.of(context).size.height / 9),
+          )
+        ];
+      },
+      body: ListView(
+        shrinkWrap: true,
+        children: [
+          StreamBuilder<double>(
               stream: context.read<ProfileBloc>().appBarWidth,
               builder: (context, snapshot) {
                 if (snapshot.hasData && snapshot.data > .95) {
                   return Container(
                       padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height / 20,
+                          top: 0,
                           bottom: 20),
                       child: InfoSection());
                 }
-                return const SizedBox(height: 10);
+                return const SizedBox(height: 0);
               }),
-        ),
-        SliverToBoxAdapter(
-          child: Material(
+          Material(
             elevation: 20,
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(40), topRight: Radius.circular(40)),
@@ -95,8 +98,8 @@ class _LightProfileState extends State<LightProfile>
                   }),
             ),
           ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }

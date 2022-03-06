@@ -23,6 +23,8 @@ class Post extends StatefulWidget {
 }
 
 class _PostState extends State<Post> {
+  bool isLikeAnimating;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -51,4 +53,6 @@ class _PostState extends State<Post> {
       ),
     );
   }
+
+  void likeAnimation(bool val) => setState(() => isLikeAnimating = val);
 }

@@ -4,8 +4,6 @@ import 'package:profile/constants/colors.dart';
 class NumberInfo extends StatelessWidget {
   final String info;
   final String number;
-  final double _cardWidth = 100;
-  final double _cardHeight = 90;
   final Function onTap;
   final bool isSelected;
 
@@ -19,6 +17,9 @@ class NumberInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _cardHeight = MediaQuery.of(context).size.height * .1;
+    double _cardWidth = MediaQuery.of(context).size.width * .25;
+
     return Material(
       elevation: 2,
       borderRadius: BorderRadius.circular(_cardWidth / 7),
@@ -29,7 +30,7 @@ class NumberInfo extends StatelessWidget {
           width: _cardWidth,
           decoration: BoxDecoration(
               color: isSelected ? MyColors.primaryColor : Colors.white,
-              borderRadius: BorderRadius.circular(_cardWidth / 7)),
+              borderRadius: BorderRadius.circular(_cardWidth / 8)),
           duration: Duration(milliseconds: 700),
           curve: Curves.decelerate,
           child: Column(
@@ -38,7 +39,7 @@ class NumberInfo extends StatelessWidget {
               Text(
                 info,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color: isSelected ? Colors.white70 : Colors.black45),
               ),

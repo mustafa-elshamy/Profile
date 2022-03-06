@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/constants/colors.dart';
+import 'package:profile/views/light_profile/info_section/invitation_card.dart';
 import 'package:profile/views/light_profile/cover/profile_circle_icon.dart';
 import 'package:profile/views/light_profile/side_menu/settings_builder.dart';
 import 'package:profile/views/light_profile/side_menu/side_menu_card.dart';
@@ -73,15 +74,7 @@ class _SideMenuState extends State<SideMenu> {
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 8),
-                      const CustomText(
-                        text: "Username@gmail.com",
-                        textStyle: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                            color: Colors.black54),
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                      ),
+                      const InvitationCard(invitationCode: "invitation code")
                     ],
                   ),
                 ),

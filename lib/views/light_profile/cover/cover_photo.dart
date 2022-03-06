@@ -7,8 +7,6 @@ import 'package:profile/views/light_profile/cover/profile_circle_icon.dart';
 import 'package:profile/views/light_profile/widgets/custom_icon.dart';
 import 'package:provider/src/provider.dart';
 
-import 'info_section.dart';
-
 class CoverPhoto implements SliverPersistentHeaderDelegate {
   final double coverMinExtent;
   final double coverMaxExtent;
@@ -47,14 +45,14 @@ class CoverPhoto implements SliverPersistentHeaderDelegate {
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20))),
                 shrinkOffset / coverMaxExtent)),
-        Visibility(
-          visible: shrinkOffset < coverMaxExtent / 20,
-          child: Positioned(
-            right: MediaQuery.of(context).size.width * .024,
-            top: MediaQuery.of(context).size.height * .22 ,
-            child: EditIcon(onTap: () {}),
-          ),
-        ),
+        // Visibility(
+        //   visible: shrinkOffset < coverMaxExtent / 20,
+        //   child: Positioned(
+        //     right: MediaQuery.of(context).size.width * .024,
+        //     top: MediaQuery.of(context).size.height * .22,
+        //     child: EditIcon(onTap: () {}),
+        //   ),
+        // ),
         Visibility(
           visible: shrinkOffset < coverMaxExtent / 20,
           child: Positioned(
@@ -94,6 +92,7 @@ class CoverPhoto implements SliverPersistentHeaderDelegate {
               children: [
                 ProfileCircleIcon(
                   radius: MediaQuery.of(context).size.height * .03,
+                  onTap: () => Scaffold.of(context).openDrawer(),
                 ),
                 SizedBox(width: 20),
                 Column(

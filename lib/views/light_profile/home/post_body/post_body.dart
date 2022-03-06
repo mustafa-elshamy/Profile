@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:profile/constants/colors.dart';
 import 'package:profile/views/light_profile/home/images_grid.dart';
 import 'package:readmore/readmore.dart';
@@ -24,7 +24,7 @@ class PostBody extends StatelessWidget {
           text != null
               ? ReadMoreText(
                   text,
-                  style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                   trimLines: 2,
                   trimLength: 100,
                   trimCollapsedText: "Read more",

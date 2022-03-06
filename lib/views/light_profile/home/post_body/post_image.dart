@@ -26,12 +26,7 @@ class _PostImageState extends State<PostImage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onDoubleTap: widget.withLikeAnimation
-          ? () {
-              setState(() {
-                isLikeAnimating = true;
-                print("like");
-              });
-            }
+          ? () => setState(() => isLikeAnimating = true)
           : () {},
       child: Stack(
         alignment: Alignment.center,
@@ -54,10 +49,7 @@ class _PostImageState extends State<PostImage> {
                   opacity: isLikeAnimating ? 1 : 0,
                   child: LikePostAnimation(
                     isAnimating: isLikeAnimating,
-                    onEnd: () {
-                      setState(() => isLikeAnimating = false);
-                      print("end");
-                    },
+                    onEnd: () => setState(() => isLikeAnimating = false),
                   ),
                 )
               : Container()

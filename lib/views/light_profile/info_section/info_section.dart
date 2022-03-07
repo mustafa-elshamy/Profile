@@ -23,11 +23,9 @@ class _InfoSectionState extends State<InfoSection> {
       children: [
         Row(
           children: [
-            CoinsIcon(
-              coins: 1000,
-            ),
+            CoinsIcon(coins: 1000),
             Spacer(),
-            EditIcon(onTap: () {})
+            EditIcon(onTap: () {}),
           ],
         ),
         CustomText(

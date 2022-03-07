@@ -7,11 +7,13 @@ import 'package:readmore/readmore.dart';
 class PostBody extends StatelessWidget {
   final String text;
   final List<String> images;
+  final Function onTap;
 
   const PostBody({
     Key key,
     this.text,
     @required this.images,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -35,6 +37,7 @@ class PostBody extends StatelessWidget {
           SizedBox(height: 10),
           ImagesGrid(
             images: images,
+            onTap : onTap,
           )
         ],
       ),

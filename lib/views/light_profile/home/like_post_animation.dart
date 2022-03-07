@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class LikePostAnimation extends StatefulWidget {
   final bool isAnimating;
   final VoidCallback onEnd;
+  final Widget child;
 
   const LikePostAnimation({
     Key key,
     this.isAnimating,
     this.onEnd,
+    this.child,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class _LikePostAnimationState extends State<LikePostAnimation>
   void initState() {
     super.initState();
     controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     scale = Tween<double>(begin: 1, end: 1.3).animate(controller);
   }
 
@@ -31,11 +33,13 @@ class _LikePostAnimationState extends State<LikePostAnimation>
   Widget build(BuildContext context) {
     return ScaleTransition(
       scale: scale,
-      child: Icon(
-        Icons.favorite_rounded,
-        color: Colors.white,
-        size: MediaQuery.of(context).size.width * .12,
-      ),
+      child: widget.child != null
+          ? widget.child
+          : Icon(
+              Icons.favorite_rounded,
+              color: Colors.white,
+              size: MediaQuery.of(context).size.width * .12,
+            ),
     );
   }
 
@@ -49,7 +53,7 @@ class _LikePostAnimationState extends State<LikePostAnimation>
     if (widget.isAnimating) {
       await controller.forward();
       await controller.reverse();
-      await Future.delayed(Duration(milliseconds: 100));
+      await Future.delayed(Duration(milliseconds: 75));
       if (widget.onEnd != null) widget.onEnd();
     }
   }

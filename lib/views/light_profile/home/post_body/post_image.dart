@@ -6,6 +6,7 @@ class PostImage extends StatefulWidget {
   final double width;
   final double height;
   final bool withLikeAnimation;
+  final Function onTap;
 
   const PostImage({
     Key key,
@@ -13,6 +14,7 @@ class PostImage extends StatefulWidget {
     this.width,
     this.height,
     this.withLikeAnimation = false,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,10 @@ class _PostImageState extends State<PostImage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onDoubleTap: widget.withLikeAnimation
-          ? () => setState(() => isLikeAnimating = true)
+          ? () => setState(() {
+                isLikeAnimating = true;
+                widget.onTap(isAnimation: true);
+              })
           : () {},
       child: Stack(
         alignment: Alignment.center,

@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
       horizontalAlignment: MainAxisAlignment.center,
       children: [
         /// this is dummy data
-        const Post(
+        Post(
           text: "1 photo(s) "
               "hkdjfhdkljfhadkjfhkdjfhdksjfhdkjfhkdjfhkdjfhksjfhkdsjfaskdf"
               "hkdjfhdkljfhadkjfhkdjfhdksjfhdkjfhkdjfhkdjfhksjfhkdsjfaskdf"
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
           images: [
             "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
           ],
-          likesNumber: "10K",
+          likesNumber: "10",
           commentsNumber: "200",
         ),
         for (int i = 2; i < 5; i++)
@@ -36,10 +36,10 @@ class _HomePageState extends State<HomePage> {
               for (int j = 1; j <= i; j++)
                 "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
             ],
-            likesNumber: "10K",
+            likesNumber: "10",
             commentsNumber: "200",
           ),
-        const Post(
+        Post(
           images: [
             "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
             "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
             "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
           ],
-          likesNumber: "10K",
+          likesNumber: "10",
           commentsNumber: "200",
         ),
       ],

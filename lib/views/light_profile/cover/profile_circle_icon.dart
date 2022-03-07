@@ -4,18 +4,20 @@ class ProfileCircleIcon extends StatelessWidget {
   final double radius;
   final Function onTap;
   final Color circleColor;
+  final double elevation;
 
   const ProfileCircleIcon({
     Key key,
     this.radius,
     this.onTap,
     this.circleColor = Colors.white,
+    this.elevation = 8,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 8,
+      elevation: elevation,
       borderRadius: BorderRadius.circular(radius),
       child: InkWell(
         onTap: onTap,

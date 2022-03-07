@@ -40,7 +40,7 @@ class _SideMenuCardState extends State<SideMenuCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Material(
         elevation: widget.elevation,
         borderRadius: BorderRadius.circular(10),

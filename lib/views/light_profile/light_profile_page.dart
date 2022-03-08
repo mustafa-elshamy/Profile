@@ -1,6 +1,8 @@
 import 'package:profile/views/light_profile/create_post/create_post.dart';
 import 'package:profile/views/light_profile/cv_page/cv_page.dart';
 import 'package:profile/views/light_profile/photos_section/photos_section.dart';
+import 'package:profile/views/light_profile/stories/story_avatar.dart';
+import 'package:profile/views/light_profile/stories/story_grid.dart';
 import 'package:profile/views/light_profile/tab_bars/ads_tab_bar_view.dart';
 import 'package:profile/views/light_profile/tab_bars/home_tab_bar_view.dart';
 import 'package:provider/src/provider.dart';
@@ -48,19 +50,6 @@ class _LightProfileState extends State<LightProfile>
                 }
                 return Container();
               }),
-          // StreamBuilder<double>(
-          //     stream: context.read<ProfileBloc>().appBarWidth,
-          //     builder: (context, snapshot) {
-          //       if (snapshot.hasData && snapshot.data > .95) {
-          //         return Column(
-          //           children: const [
-          //             PhotosSection(),
-          //             SizedBox(height: 10),
-          //           ],
-          //         );
-          //       }
-          //       return Container();
-          //     }),
           PhotosSection(
             images: [
               PostImage(
@@ -83,6 +72,8 @@ class _LightProfileState extends State<LightProfile>
           ),
           SizedBox(height: 10),
           CreatePost(),
+          SizedBox(height: 10),
+          StoryGrid(),
           const SizedBox(height: 10),
           Material(
             elevation: 20,

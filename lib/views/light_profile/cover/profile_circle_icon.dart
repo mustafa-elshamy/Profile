@@ -5,13 +5,15 @@ class ProfileCircleIcon extends StatelessWidget {
   final Function onTap;
   final Color circleColor;
   final double elevation;
+  final double padding;
 
   const ProfileCircleIcon({
     Key key,
-    this.radius,
+    @required this.radius,
     this.onTap,
     this.circleColor = Colors.white,
     this.elevation = 8,
+    this.padding = 1.5,
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class ProfileCircleIcon extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: EdgeInsets.all(1.5),
+          padding: EdgeInsets.all(padding),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius),
             color: circleColor,

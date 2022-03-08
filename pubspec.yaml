@@ -51,6 +51,7 @@ dev_dependencies:
   google_fonts: 2.2.0
   readmore: ^2.1.0
   like_button: ^2.0.4
+  dashed_circle: ^0.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

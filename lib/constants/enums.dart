@@ -1,0 +1,4 @@
+enum StoryMediaType {
+  image,
+  video,
+}

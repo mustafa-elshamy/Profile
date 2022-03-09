@@ -23,7 +23,7 @@ class _StoryGridState extends State<StoryGrid> {
             StoryAvatar(
               radius: 30,
               roundPadding: 1,
-            ),
+            )
         ],
       ),
     );

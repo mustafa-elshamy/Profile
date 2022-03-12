@@ -26,20 +26,13 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        theme: ThemeData(canvasColor: Colors.transparent),
+        theme: ThemeData(
+          canvasColor: Colors.transparent,
+        ),
         debugShowCheckedModeBanner: false,
         home: Builder(builder: (context) {
           return Scaffold(
             backgroundColor: Colors.white,
-            // body: Stack(
-            //   children: [
-            //     LightProfile(),
-            //     Positioned(
-            //       top: MediaQuery.of(context).size.height / 4,
-            //       child: MenuIcon(),
-            //     ),
-            //   ],
-            // ),
             body: LightProfile(),
             drawer: SideMenu(),
             drawerEdgeDragWidth: MediaQuery.of(context).size.width / 10,

@@ -72,8 +72,8 @@ class _LightProfileState extends State<LightProfile>
           ),
           SizedBox(height: 10),
           CreatePost(),
-          SizedBox(height: 10),
-          StoryGrid(),
+          // SizedBox(height: 10),
+          // StoryGrid(),
           const SizedBox(height: 10),
           Material(
             elevation: 20,

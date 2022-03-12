@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
 import 'package:profile/views/light_profile/menu_icon/menu_icon.dart';
+import 'package:profile/views/light_profile/stories/story_grid.dart';
 import 'package:provider/src/provider.dart';
 
 import 'cv_tab_bar.dart';

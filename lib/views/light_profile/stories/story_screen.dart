@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/story_bloc/story_bloc.dart';
 import 'package:profile/constants/colors.dart';
@@ -8,21 +10,12 @@ import 'package:video_player/video_player.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StoryScreen extends StatefulWidget {
-  List<Story> stories = [
-    Story(
-      mediaType: StoryMediaType.image,
-      url:
-          "https://upload.wikimedia.org/wikipedia/commons/9/91/F-15_vertical_deploy.jpg",
-      storyImageDuration: const Duration(seconds: 5),
-    ),
-    Story(
-      mediaType: StoryMediaType.video,
-      url:
-          "https://biteable.com/static-assets/homepage/HubpageVideo_Short_16x9_01.mp4",
-    ),
-  ];
+  final List<Story> stories;
 
-  StoryScreen({Key key}) : super(key: key);
+  const StoryScreen({
+    Key key,
+    @required this.stories,
+  }) : super(key: key);
 
   @override
   State<StoryScreen> createState() => _StoryScreenState();
@@ -64,7 +57,7 @@ class _StoryScreenState extends State<StoryScreen>
     return Scaffold(
       backgroundColor: Colors.black,
       body: GestureDetector(
-        onVerticalDragEnd: _onVerticalDragDown,
+        onVerticalDragUpdate: _onVerticalDragDown,
         onTapDown: _onTapDown,
         child: Stack(
           children: [
@@ -113,22 +106,26 @@ class _StoryScreenState extends State<StoryScreen>
 
                 /// image
                 else {
+                  // bool isLoaded = false;
                   return Image.network(
                     story.url,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) {
+                    frameBuilder:
+                        (context, child, frame, wasSynchronouslyLoaded) {
+                      if (frame != null) {
                         animationController.forward();
+
                         return child;
                       }
                       animationController.stop();
                       return Center(
                         child: CircularProgressIndicator(
                           color: MyColors.primaryColor,
-                          value: loadingProgress.cumulativeBytesLoaded /
-                              loadingProgress.expectedTotalBytes,
                         ),
                       );
                     },
+                    // loadingBuilder: (context, child, loadingProgress) {
+                    //
+                    // },
                   );
                 }
               },
@@ -158,8 +155,8 @@ class _StoryScreenState extends State<StoryScreen>
     );
   }
 
-  void _onVerticalDragDown(DragEndDetails dragDownDetails) {
-    Navigator.pop(context);
+  void _onVerticalDragDown(DragUpdateDetails dragUpdateDetails) {
+    if (dragUpdateDetails.delta.direction == pi / 2) Navigator.pop(context);
   }
 
   void _onTapDown(TapDownDetails tapDownDetails) {
@@ -229,7 +226,7 @@ class _StoryScreenState extends State<StoryScreen>
         videoController.dispose();
       }
       animationController.duration = story.storyImageDuration;
-      animationController.forward();
+      // animationController.forward();
     }
     if (animateToPage) {
       pageController.animateToPage(currentStoryIndex,

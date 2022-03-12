@@ -6,12 +6,14 @@ import 'package:profile/views/light_profile/home/post_body/post_image.dart';
 
 class ImagesGrid extends StatefulWidget {
   final List<String> images;
-  final Function onTap;
+  final List<String> heroTags;
+  final Function onDoubleTap;
 
   const ImagesGrid({
     Key key,
     @required this.images,
-    this.onTap,
+    this.onDoubleTap,
+    this.heroTags,
   }) : super(key: key);
 
   @override
@@ -44,7 +46,8 @@ class _ImagesGridState extends State<ImagesGrid> {
               height: mainPhotoHeight,
               width: mainPhotoWidth,
               withLikeAnimation: widget.images.length == 1,
-              onTap: widget.onTap,
+              onDoubleTap: widget.onDoubleTap,
+              heroTag: widget.heroTags[0],
             ),
           ],
         ),
@@ -59,11 +62,13 @@ class _ImagesGridState extends State<ImagesGrid> {
                       height: smallPhotoHeight,
                       width: smallPhotoWidth,
                       number: totalPhotos - i,
+                      heroTag: widget.heroTags[i],
                     )
                   : PostImage(
                       image: widget.images[i],
                       height: smallPhotoHeight,
                       width: smallPhotoWidth,
+                      heroTag: widget.heroTags[i],
                     ),
           ],
         )

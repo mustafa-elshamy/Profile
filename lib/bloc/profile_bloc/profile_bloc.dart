@@ -19,8 +19,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final BehaviorSubject<bool> _showAds = BehaviorSubject<bool>.seeded(false);
   final BehaviorSubject<bool> _showSettings =
       BehaviorSubject<bool>.seeded(false);
+  // List<BehaviorSubject<bool>> _posts;
 
   Stream<String> get selectedCvSection => _selectedCvSection.stream;
+
+  // Stream<bool> post(int index) => _posts[index].stream;
 
   Stream<double> get appBarWidth => _appBarWidth.stream;
 
@@ -40,6 +43,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   set updateShowSettings(bool val) => _showSettings.sink.add(val);
 
+  // void updatePost(bool val, int index) => _posts[index].sink.add(val);
+
   void toggleShowAds() => _showAds.sink.add(!_showAds.value);
 
   void toggleShowSettings() => _showSettings.sink.add(!_showSettings.value);
@@ -47,6 +52,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc() : super(ProfileInitial()) {
     on<ProfileEvent>((event, emit) {});
   }
+
+  // void initializePosts(int length) {
+  //   _posts = [
+  //     for (int i = 0; i < length; i++) BehaviorSubject<bool>.seeded(false)
+  //   ];
+  // }
 
   @override
   Future<void> close() {

@@ -6,7 +6,8 @@ class PostImage extends StatefulWidget {
   final double width;
   final double height;
   final bool withLikeAnimation;
-  final Function onTap;
+  final Function onDoubleTap;
+  final String heroTag;
 
   const PostImage({
     Key key,
@@ -14,7 +15,8 @@ class PostImage extends StatefulWidget {
     this.width,
     this.height,
     this.withLikeAnimation = false,
-    this.onTap,
+    this.onDoubleTap,
+    this.heroTag,
   }) : super(key: key);
 
   @override
@@ -30,7 +32,7 @@ class _PostImageState extends State<PostImage> {
       onDoubleTap: widget.withLikeAnimation
           ? () => setState(() {
                 isLikeAnimating = true;
-                widget.onTap(isAnimation: true);
+                widget.onDoubleTap(isAnimation: true);
               })
           : () {},
       child: Stack(
@@ -41,12 +43,15 @@ class _PostImageState extends State<PostImage> {
             width: widget.width,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                widget.image,
-                height: widget.height,
-                width: widget.width,
-                fit: BoxFit.cover,
-              ),
+              child: widget.heroTag != null ?Hero(
+                tag: widget.heroTag,
+                child: Image.network(
+                  widget.image,
+                  height: widget.height,
+                  width: widget.width,
+                  fit: BoxFit.cover,
+                ),
+              ):Container(),
             ),
           ),
           widget.withLikeAnimation

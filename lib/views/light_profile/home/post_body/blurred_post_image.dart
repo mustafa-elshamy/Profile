@@ -1,11 +1,11 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class BlurredPostImage extends StatelessWidget {
   final String image;
   final double width;
   final double height;
+  final String heroTag;
   final int number;
 
   const BlurredPostImage({
@@ -14,6 +14,7 @@ class BlurredPostImage extends StatelessWidget {
     this.width,
     this.height,
     this.number,
+    this.heroTag,
   }) : super(key: key);
 
   @override
@@ -21,36 +22,39 @@ class BlurredPostImage extends StatelessWidget {
     return SizedBox(
       height: height,
       width: width,
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.network(
-              image,
-              height: height,
-              width: width,
-              fit: BoxFit.cover,
+      child: Hero(
+        tag: heroTag,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.network(
+                image,
+                height: height,
+                width: width,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-              child: Container(
-                color: Colors.white.withOpacity(0.1),
-                alignment: Alignment.center,
-                child: Text(
-                  "+${number.toString()}",
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                child: Container(
+                  color: Colors.white.withOpacity(0.1),
+                  alignment: Alignment.center,
+                  child: Text(
+                    "+${number.toString()}",
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:profile/views/light_profile/cover/profile_circle_icon.dart';
 import 'package:profile/views/light_profile/home/post_body/post_body.dart';
 import 'package:profile/views/light_profile/home/post_header.dart';
 import 'package:profile/views/light_profile/home/post_tail/post_tail.dart';
 import 'package:profile/views/light_profile/home/post_tail/reaction_avatars.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:profile/views/light_profile/post_page/post_page.dart';
 
 class Post extends StatefulWidget {
   final String text;
   final List<String> images;
+  List<String> heroTags;
   String likesNumber;
   final String commentsNumber;
+  final bool isClickable;
+  final bool withHeader;
+  final double verticalMargin;
 
   Post({
     Key key,
@@ -17,6 +22,10 @@ class Post extends StatefulWidget {
     this.images,
     @required this.likesNumber,
     @required this.commentsNumber,
+    this.isClickable = true,
+    this.withHeader = true,
+    this.verticalMargin = 8,
+    this.heroTags,
   }) : super(key: key);
 
   @override
@@ -30,7 +39,7 @@ class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(vertical: widget.verticalMargin),
       child: Material(
         elevation: 2,
         borderRadius: BorderRadius.circular(10),
@@ -41,11 +50,27 @@ class _PostState extends State<Post> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PostHeader(),
+              widget.withHeader ? PostHeader() : Container(),
               PostBody(
                 text: widget.text,
                 images: widget.images,
-                onTap: likePost,
+                heroTags: widget.heroTags,
+                onDoubleTap: likePost,
+                onTap: widget.isClickable
+                    ? () {
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.rightToLeft,
+                              child: PostPage(
+                                text: widget.text,
+                                images: widget.images,
+                                heroTags: widget.heroTags,
+                              ),
+                              duration: const Duration(milliseconds: 500),
+                            ));
+                      }
+                    : () {},
               ),
               SizedBox(height: 10),
               ReactionAvatars(),

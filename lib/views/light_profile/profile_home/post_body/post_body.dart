@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:profile/constants/colors.dart';
-import 'package:profile/views/light_profile/home/images_grid.dart';
+import 'package:profile/views/light_profile/profile_home/images_grid.dart';
 import 'package:readmore/readmore.dart';
 
 class PostBody extends StatelessWidget {

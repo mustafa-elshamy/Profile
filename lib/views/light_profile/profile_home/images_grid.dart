@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:profile/views/light_profile/home/post_body/blurred_post_image.dart';
+import 'package:profile/views/light_profile/profile_home/post_body/blurred_post_image.dart';
 import 'dart:math';
 
-import 'package:profile/views/light_profile/home/post_body/post_image.dart';
+import 'package:profile/views/light_profile/profile_home/post_body/post_image.dart';
 
 class ImagesGrid extends StatefulWidget {
   final List<String> images;

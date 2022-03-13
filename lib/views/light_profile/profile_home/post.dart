@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:profile/views/light_profile/home/post_body/post_body.dart';
-import 'package:profile/views/light_profile/home/post_header.dart';
-import 'package:profile/views/light_profile/home/post_tail/post_tail.dart';
-import 'package:profile/views/light_profile/home/post_tail/reaction_avatars.dart';
+import 'package:profile/views/light_profile/profile_home/post_body/post_body.dart';
+import 'package:profile/views/light_profile/profile_home/post_header.dart';
+import 'package:profile/views/light_profile/profile_home/post_tail/post_tail.dart';
+import 'package:profile/views/light_profile/profile_home/post_tail/reaction_avatars.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:profile/views/light_profile/post_page/post_page.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile/views/light_profile/home/post.dart';
+import 'package:profile/views/light_profile/profile_home/post.dart';
 
 import 'dart:math';
 

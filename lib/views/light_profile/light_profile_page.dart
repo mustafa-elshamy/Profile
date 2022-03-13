@@ -1,18 +1,16 @@
-import 'package:profile/views/light_profile/create_post/create_post.dart';
+import 'package:profile/views/light_profile/create_post/create_post_card.dart';
 import 'package:profile/views/light_profile/cv_page/cv_page.dart';
 import 'package:profile/views/light_profile/photos_section/photos_section.dart';
-import 'package:profile/views/light_profile/stories/story_avatar.dart';
-import 'package:profile/views/light_profile/stories/story_grid.dart';
 import 'package:profile/views/light_profile/tab_bars/ads_tab_bar_view.dart';
 import 'package:profile/views/light_profile/tab_bars/home_tab_bar_view.dart';
 import 'package:provider/src/provider.dart';
 
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
-import 'package:profile/views/light_profile/home/home_page.dart';
+import 'package:profile/views/light_profile/profile_home/profile_home_page.dart';
 import 'package:profile/views/light_profile/info_section/info_section.dart';
 import 'package:profile/views/light_profile/cover/cover_photo.dart';
-import 'home/post_body/post_image.dart';
+import 'profile_home/post_body/post_image.dart';
 
 class LightProfile extends StatefulWidget {
   const LightProfile({Key key}) : super(key: key);
@@ -52,26 +50,15 @@ class _LightProfileState extends State<LightProfile>
               }),
           PhotosSection(
             images: [
-              PostImage(
-                image:
-                    "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
-              ),
-              PostImage(
-                image:
-                    "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
-              ),
-              PostImage(
-                image:
-                    "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
-              ),
-              PostImage(
-                image:
-                    "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
-              ),
+              for (int i = 0; i < 4; i++)
+                PostImage(
+                  image:
+                      "https://cdn.vox-cdn.com/thumbor/iKqbD98GVm9t-VgiKdSjA2oHomE=/0x0:2439x1625/920x613/filters:focal(1025x618:1415x1008):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69123675/5.0.png",
+                ),
             ],
           ),
-          SizedBox(height: 10),
-          CreatePost(),
+          // SizedBox(height: 10),
+          // CreatePost(),
           // SizedBox(height: 10),
           // StoryGrid(),
           const SizedBox(height: 10),
@@ -101,7 +88,7 @@ class _LightProfileState extends State<LightProfile>
                             "Finished"
                           ],
                           tabsWidgets: [
-                            HomePage(),
+                            ProfileHomePage(horizontalPadding: 10),
                             Text("1"),
                             Text("2"),
                             Text("3"),
@@ -115,7 +102,7 @@ class _LightProfileState extends State<LightProfile>
                           "CV",
                         ],
                         tabsWidgets: [
-                          HomePage(),
+                          ProfileHomePage(horizontalPadding: 10),
                           CVPage(),
                         ],
                       );

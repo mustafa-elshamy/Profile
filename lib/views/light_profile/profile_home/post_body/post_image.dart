@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile/views/light_profile/home/like_post_animation.dart';
+import 'package:profile/views/light_profile/profile_home/like_post_animation.dart';
 
 class PostImage extends StatefulWidget {
   final String image;
@@ -43,15 +43,22 @@ class _PostImageState extends State<PostImage> {
             width: widget.width,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: widget.heroTag != null ?Hero(
-                tag: widget.heroTag,
-                child: Image.network(
-                  widget.image,
-                  height: widget.height,
-                  width: widget.width,
-                  fit: BoxFit.cover,
-                ),
-              ):Container(),
+              child: widget.heroTag != null
+                  ? Hero(
+                      tag: widget.heroTag,
+                      child: Image.network(
+                        widget.image,
+                        height: widget.height,
+                        width: widget.width,
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  : Image.network(
+                      widget.image,
+                      height: widget.height,
+                      width: widget.width,
+                      fit: BoxFit.cover,
+                    ),
             ),
           ),
           widget.withLikeAnimation

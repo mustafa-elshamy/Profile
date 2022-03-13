@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
-import 'package:profile/views/light_profile/home/home_page.dart';
+import 'package:profile/views/light_profile/profile_home/profile_home_page.dart';
 import 'package:provider/src/provider.dart';
 
 import 'cv_tab_bar.dart';

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:profile/bloc/profile_bloc/profile_bloc.dart';
+import 'package:page_transition/page_transition.dart';
+
 import 'package:profile/constants/colors.dart';
 import 'package:profile/views/light_profile/cover/edit_icon.dart';
+import 'package:profile/views/light_profile/home_page/home_page.dart';
 import 'package:profile/views/light_profile/info_section/coins_icon.dart';
 import 'package:profile/views/light_profile/info_section/info_tail.dart';
 import 'package:profile/views/light_profile/info_section/invitation_card.dart';
@@ -25,7 +28,11 @@ class _InfoSectionState extends State<InfoSection> {
           children: [
             CoinsIcon(coins: 1000),
             Spacer(),
-            EditIcon(onTap: () {}),
+            CircleIcon(
+              icon: Icons.edit_rounded,
+              onTap: () {},
+            ),
+            SizedBox(width: 10)
           ],
         ),
         CustomText(

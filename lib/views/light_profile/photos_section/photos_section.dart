@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/constants/colors.dart';
-import 'package:profile/views/light_profile/home/post_body/post_image.dart';
+import 'package:profile/views/light_profile/profile_home/post_body/post_image.dart';
 import 'package:profile/views/light_profile/widgets/custom_grid_view.dart';
 import 'package:profile/views/light_profile/widgets/custom_text.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/constants/colors.dart';
-import 'package:profile/views/light_profile/home/post_tail/reaction_icon.dart';
+import 'package:profile/views/light_profile/profile_home/post_tail/reaction_icon.dart';
 import 'package:like_button/like_button.dart';
 
 class PostTail extends StatefulWidget {

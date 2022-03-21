@@ -27,10 +27,16 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   set modifyMedia(val) {
     if (val is List) {
-      _media.sink.add(val);
+      _media.sink.add([...val, ..._media.value]);
     } else {
-      _media.sink.add(_media.value.add(val));
+      _media.value.add(val);
+      _media.sink.add(_media.value);
     }
+  }
+
+  set deleteMedia(int index) {
+    _media.value.remove(_media.value[index]);
+    _media.sink.add(_media.value);
   }
 
   HomeBloc() : super(HomeInitial()) {

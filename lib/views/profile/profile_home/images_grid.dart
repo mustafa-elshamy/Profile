@@ -33,7 +33,7 @@ class _ImagesGridState extends State<ImagesGrid> {
     mainPhotoHeight = MediaQuery.of(context).size.height * .25;
     smallPhotoHeight = mainPhotoHeight / min(totalPhotos - 1, 2);
 
-    mainPhotoWidth = MediaQuery.of(context).size.width * .86 - 2;
+    mainPhotoWidth = MediaQuery.of(context).size.width * .85;
     smallPhotoWidth = mainPhotoWidth / min(totalPhotos - 1, 3);
 
     return Column(
@@ -51,26 +51,29 @@ class _ImagesGridState extends State<ImagesGrid> {
             ),
           ],
         ),
-        SizedBox(height: 4),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            for (int i = 1; i < min(totalPhotos, 4); i++)
-              (i == 3 && totalPhotos > 4)
-                  ? BlurredPostImage(
-                      image: widget.images[i],
-                      height: smallPhotoHeight,
-                      width: smallPhotoWidth,
-                      number: totalPhotos - i,
-                      heroTag: widget.heroTags[i],
-                    )
-                  : PostImage(
-                      image: widget.images[i],
-                      height: smallPhotoHeight,
-                      width: smallPhotoWidth,
-                      heroTag: widget.heroTags[i],
-                    ),
-          ],
+        const SizedBox(height: 4),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              for (int i = 1; i < min(totalPhotos, 4); i++)
+                (i == 3 && totalPhotos > 4)
+                    ? BlurredPostImage(
+                        image: widget.images[i],
+                        height: smallPhotoHeight,
+                        width: smallPhotoWidth,
+                        number: totalPhotos - i,
+                        heroTag: widget.heroTags[i],
+                      )
+                    : PostImage(
+                        image: widget.images[i],
+                        height: smallPhotoHeight,
+                        width: smallPhotoWidth,
+                        heroTag: widget.heroTags[i],
+                      ),
+            ],
+          ),
         )
       ],
     );

@@ -11,14 +11,14 @@ class ChooseMediaMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         PickMedia(
           text: "Photo",
           icon: Icons.image_rounded,
           onTap: () {
             Helper.pickImages().then((value) {
-              context.read<HomeBloc>().modifyMedia = value;
+              context.read<HomeBloc>().modifyMedia = value ?? [];
             });
           },
         ),
@@ -27,7 +27,7 @@ class ChooseMediaMenu extends StatelessWidget {
           icon: Icons.video_library_rounded,
           onTap: () {
             Helper.pickVideo().then((value) {
-              context.read<HomeBloc>().modifyMedia = value;
+              context.read<HomeBloc>().modifyMedia = value ?? [];
             });
           },
         ),

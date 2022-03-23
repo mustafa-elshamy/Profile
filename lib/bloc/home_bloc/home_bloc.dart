@@ -9,34 +9,36 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final BehaviorSubject<bool> _showCreatePost =
+  final BehaviorSubject<bool> _blurPage =
       BehaviorSubject<bool>.seeded(false);
   final BehaviorSubject<bool> _isPostEmpty =
       BehaviorSubject<bool>.seeded(false);
   final BehaviorSubject _media = BehaviorSubject.seeded([]);
 
-  Stream<bool> get showCreatePost => _showCreatePost.stream;
+  Stream<bool> get blurPage => _blurPage.stream;
 
   Stream<bool> get postStatus => _isPostEmpty.stream;
 
   Stream get postMedia => _media.stream;
 
-  set createPostStatus(bool val) => _showCreatePost.sink.add(val);
+  set setPageBlurring(bool val) => _blurPage.sink.add(val);
 
   set changePostStatus(bool val) => _isPostEmpty.sink.add(val);
 
   set modifyMedia(val) {
     if (val is List) {
-      _media.sink.add([...val, ..._media.value]);
+      _media.sink.add([...val, ..._media.stream.value]);
+    } else if (val != null) {
+      _media.sink.add([val, ..._media.stream.value]);
     } else {
-      _media.value.add(val);
-      _media.sink.add(_media.value);
+      _media.sink.add([]);
     }
   }
 
   set deleteMedia(int index) {
-    _media.value.remove(_media.value[index]);
-    _media.sink.add(_media.value);
+    List media = _media.stream.value;
+    media.removeAt(index);
+    _media.sink.add(media);
   }
 
   HomeBloc() : super(HomeInitial()) {

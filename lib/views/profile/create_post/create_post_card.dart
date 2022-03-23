@@ -24,7 +24,7 @@ class _CreatePostState extends State<CreatePost> {
       borderRadius: BorderRadius.circular(15),
       child: InkWell(
         onTap: () {
-          context.read<HomeBloc>().createPostStatus = true;
+          context.read<HomeBloc>().setPageBlurring = true;
           Navigator.push(
             context,
             PageTransition(

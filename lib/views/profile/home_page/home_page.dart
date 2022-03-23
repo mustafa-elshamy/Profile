@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             Builder(
               builder: (context) {
                 return StreamBuilder<bool>(
-                  stream: context.read<HomeBloc>().showCreatePost,
+                  stream: context.read<HomeBloc>().blurPage,
                   builder: (context, snapshot) {
                     if (snapshot.hasData && snapshot.data) {
                       return BackdropFilter(

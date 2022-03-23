@@ -7,7 +7,7 @@ class VideoMedia extends StatefulWidget {
   final double width;
   final videoPath;
 
-  const VideoMedia({
+   VideoMedia({
     Key key,
     this.height,
     this.width,
@@ -25,7 +25,7 @@ class _VideoMediaState extends State<VideoMedia> {
   @override
   void initState() {
     videoPlayerController = VideoPlayerController.file(
-      File(widget.videoPath.path),
+      File(widget.videoPath),
       videoPlayerOptions: VideoPlayerOptions(mixWithOthers: false),
     )..initialize();
     videoPlayerController.setLooping(true);

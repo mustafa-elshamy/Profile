@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mime/mime.dart';
 
@@ -26,7 +27,8 @@ class MediaSection extends StatelessWidget {
               horizontalPadding: 2,
               verticalPadding: 2,
               children: [
-                for (int i = 0; i < snapshot.data.length; i++)
+                for (int i = snapshot.data.length - 1; i >= 0; i--)
+                // for (int i = 0; i < snapshot.data.length; i++)
                   Material(
                     elevation: 5,
                     borderRadius: BorderRadius.circular(10),
@@ -45,9 +47,10 @@ class MediaSection extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 )
                               : VideoMedia(
+                                  key: Key(i.toString()),
                                   width: 300,
                                   height: 100,
-                                  videoPath: snapshot.data[i],
+                                  videoPath: snapshot.data[i].path,
                                 ),
                         ),
                         Align(
@@ -65,7 +68,7 @@ class MediaSection extends StatelessWidget {
                         )
                       ],
                     ),
-                  )
+                  ),
               ],
             );
           }

@@ -57,25 +57,26 @@ class _CreatePostPageState extends State<CreatePostPage> {
               ),
               child: Column(
                 children: [
-                  CreatePostHeader(username: "Username"),
+                  const CreatePostHeader(username: "Username"),
                   Expanded(
                     child: ListView(
                       padding: EdgeInsets.zero,
                       children: [
-                        CreatePostTextField(),
-                        media.isEmpty ? SizedBox(height: 40) : Container(),
+                        const CreatePostTextField(),
                         MediaSection(setMedia: setMedia),
-                        SizedBox(height: 50)
+                        const SizedBox(height: 50)
                       ],
                     ),
                   ),
+                  const Align(
+                    alignment: Alignment.bottomCenter,
+                    child: ChooseMediaMenu(),
+                  )
                 ],
               ),
             ),
           ),
         ),
-        floatingActionButton: ChooseMediaMenu(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
@@ -88,8 +89,9 @@ class _CreatePostPageState extends State<CreatePostPage> {
 
   @override
   void dispose() {
-    blocProvider.createPostStatus = false;
+    blocProvider.setPageBlurring = false;
     blocProvider.changePostStatus = false;
+    blocProvider.modifyMedia = null;
     super.dispose();
   }
 }

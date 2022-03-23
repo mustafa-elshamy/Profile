@@ -24,38 +24,31 @@ class PickMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: verticalPadding,
-        bottom: verticalPadding,
-      ),
-      child: Material(
-        elevation: 5,
-        borderRadius: BorderRadius.circular(10),
-        child: InkWell(
-          onTap: onTap,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
-            width: MediaQuery.of(context).size.width / 2 - 20,
-            height: 45,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(icon, color: MyColors.primaryColor, size: 30),
-                const SizedBox(width: 10),
-                Text(
-                  text,
-                  style: TextStyle(
-                      color: MyColors.primaryColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                )
-              ],
-            ),
+    return Material(
+      elevation: 5,
+      borderRadius: BorderRadius.circular(10),
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          width: MediaQuery.of(context).size.width / 2 - 20,
+          height: 45,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, color: MyColors.primaryColor, size: 30),
+              const SizedBox(width: 10),
+              Text(
+                text,
+                style: TextStyle(
+                    color: MyColors.primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16),
+              )
+            ],
           ),
         ),
       ),

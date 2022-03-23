@@ -15,7 +15,7 @@ class _CreatePostTextFieldState extends State<CreatePostTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
       child: TextField(
         cursorColor: Colors.white60,
         maxLines: null,
@@ -29,8 +29,8 @@ class _CreatePostTextFieldState extends State<CreatePostTextField> {
           fontSize: 20,
           color: Colors.white,
         ),
-        onChanged: (value) =>
-            context.read<HomeBloc>().changePostStatus = value.isNotEmpty,
+        onChanged: (String value) =>
+            context.read<HomeBloc>().changePostStatus = value.replaceAll('\n', '').isNotEmpty,
       ),
     );
   }

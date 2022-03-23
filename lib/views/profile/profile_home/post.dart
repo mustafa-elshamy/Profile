@@ -44,7 +44,7 @@ class _PostState extends State<Post> {
         elevation: 2,
         borderRadius: BorderRadius.circular(10),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(10)),
           child: Column(
@@ -72,9 +72,9 @@ class _PostState extends State<Post> {
                       }
                     : () {},
               ),
-              SizedBox(height: 10),
-              ReactionAvatars(),
-              Divider(color: Colors.black, thickness: .5),
+              const SizedBox(height: 10),
+              const ReactionAvatars(),
+              const Divider(color: Colors.black, thickness: .5),
               PostTail(
                 likesNum: widget.likesNumber,
                 commentsNum: widget.commentsNumber,

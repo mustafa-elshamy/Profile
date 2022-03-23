@@ -32,7 +32,7 @@ class PostBody extends StatelessWidget {
             text != null
                 ? ReadMoreText(
                     text,
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                     trimLines: 2,
                     trimLength: 100,
                     trimCollapsedText: "Read more",
@@ -40,7 +40,7 @@ class PostBody extends StatelessWidget {
                     colorClickableText: MyColors.primaryColor,
                   )
                 : Container(),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             images != null
                 ? ImagesGrid(
                     images: images,

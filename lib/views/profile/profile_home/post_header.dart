@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:profile/views/profile/cover/profile_circle_icon.dart';
+import 'package:profile/views/profile/profile_home/actions/more_menu.dart';
+
+import '../../../bloc/home_bloc/home_bloc.dart';
 
 class PostHeader extends StatelessWidget {
   const PostHeader({Key key}) : super(key: key);
@@ -11,10 +17,10 @@ class PostHeader extends StatelessWidget {
         ProfileCircleIcon(
           radius: MediaQuery.of(context).size.width * .05,
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: const [
             Text(
               "Name",
               style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
@@ -28,10 +34,19 @@ class PostHeader extends StatelessWidget {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         InkWell(
-          onTap: () {},
-          child: Icon(Icons.more_vert_rounded, size: 24),
+          onTap: () {
+            context.read<HomeBloc>().setPageBlurring = true;
+            Navigator.push(
+              context,
+              PageTransition(
+                type: PageTransitionType.bottomToTop,
+                child: MoreMenu(),
+              ),
+            );
+          },
+          child: const Icon(Icons.more_vert_rounded, size: 24),
         ),
       ],
     );
